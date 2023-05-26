@@ -13,6 +13,10 @@ import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+/**
+ * The CustomErrorControllerTest class.
+ * It is responsible for testing the CustomErrorController class.
+ */
 @WebMvcTest(CustomErrorController.class)
 class CustomErrorControllerTest {
     @MockBean
@@ -21,15 +25,21 @@ class CustomErrorControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    /**
+     * Test case to verify the handling of error and the generation of an error response.
+     *
+     * @throws Exception if an error occurs during the test.
+     */
     @Test
     void handleError_ReturnsErrorResponse() throws Exception {
         int statusCode = 404;
         String errorMessage = "Page not found";
 
         HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
-
+// Mocking the request attributes
         Mockito.when(request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE)).thenReturn(statusCode);
         Mockito.when(request.getAttribute(RequestDispatcher.ERROR_MESSAGE)).thenReturn(errorMessage);
+        // Performing the GET request and verifying the response
 
         mockMvc.perform(get("/error").requestAttr(RequestDispatcher.ERROR_STATUS_CODE, statusCode)
                         .requestAttr(RequestDispatcher.ERROR_MESSAGE, errorMessage))
