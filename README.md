@@ -1,4 +1,4 @@
-# rhenus-fizzbuzz
+# Rhenus-fizzbuzz
 This is a small application with a REST API that receives an input value and returns a list of results in JSON format.
 By entering a number, the application returns a list of values starting with 1 to the number entered, taking into account the following rules:
 
