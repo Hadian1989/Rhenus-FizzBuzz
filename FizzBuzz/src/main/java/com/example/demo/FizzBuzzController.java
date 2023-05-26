@@ -3,18 +3,34 @@ package com.example.demo;
 import org.springframework.stereotype.Controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Controller class that handles FizzBuzz requests and provides FizzBuzz responses.
+ * Handles GET requests for FizzBuzz generation.
+ */
 @Controller
 @RequestMapping("")
 
 public class FizzBuzzController {
-
-@GetMapping("/fizzbuzz")
+    /**
+     * Handles the GET request for the "/fizzbuzz" endpoint and returns the FizzBuzz form view.
+     *
+     * @return The view name for the FizzBuzz form.
+     */
+    @GetMapping("/fizzbuzz")
     public String showFizzBuzzForm() {
-    return "fizzbuzz";
-}
+        return "fizzbuzz";
+    }
 
+    /**
+     * Handles the GET request for the "/fizzbuzz/{number}" endpoint and generates the FizzBuzz list.
+     *
+     * @param number The input number for FizzBuzz generation.
+     * @return The ResponseEntity containing the FizzBuzz list as a response body.
+     */
     @GetMapping("/fizzbuzz/{number}")
 
     public ResponseEntity<List<String>> getFizzBuzz(@PathVariable int number) {

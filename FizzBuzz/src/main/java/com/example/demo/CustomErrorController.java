@@ -7,9 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Controller class that handles error requests and provides error response information.
+ * Implements the ErrorController interface to handle generic error scenarios.
+ * Provides an endpoint for handling errors at "/error".
+ */
 @Controller
 public class CustomErrorController implements ErrorController, getErrorInterface {
-
+    /**
+     * Handles the error request and returns the error response.
+     *
+     * @param request The HttpServletRequest object containing the error details.
+     * @return The error response as a string.
+     */
 
     @RequestMapping("/error")
     @ResponseBody
@@ -30,7 +40,11 @@ public class CustomErrorController implements ErrorController, getErrorInterface
 
         return errorResponse;
     }
-
+    /**
+     * Returns the path for handling errors.
+     *
+     * @return The error path.
+     */
     @Override
     public String getErrorPath() {
         return "/error";
