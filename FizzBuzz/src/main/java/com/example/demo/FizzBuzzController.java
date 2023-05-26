@@ -1,19 +1,23 @@
-package rhenus.example.Rhenus;
+package com.example.demo;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+@Controller
+@RequestMapping("")
 
-@RestController
-@RequestMapping("/api")
 public class FizzBuzzController {
 
-    @GetMapping("/fizzbuzz")
-    public ResponseEntity<List<String>> getFizzBuzz(@RequestParam int number) {
+@GetMapping("/fizzbuzz")
+    public String showFizzBuzzForm() {
+    return "fizzbuzz";
+}
+
+    @GetMapping("/fizzbuzz/{number}")
+
+    public ResponseEntity<List<String>> getFizzBuzz(@PathVariable int number) {
         List<String> result = new ArrayList<>();
 
         for (int i = 1; i <= number; i++) {
@@ -27,7 +31,10 @@ public class FizzBuzzController {
                 result.add(String.valueOf(i));
             }
         }
-
         return ResponseEntity.ok(result);
     }
 }
+
+
+
+

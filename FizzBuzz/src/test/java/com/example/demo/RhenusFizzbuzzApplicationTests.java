@@ -1,13 +1,13 @@
-package rhenus.example.Rhenus;
+package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RhenusFizzBuzzApplicationTests {
+class RhenusFizzbuzzApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
